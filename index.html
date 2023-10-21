@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Progress Bar</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Progress Bar</h1>
+        <h3>For FrontEnd Developer</h3>
+        <div class="box">
+        <div class="circules circul1 active">
+            <i class="fa-brands fa-html5"></i>
+        </div>
+        <div class="circules circul2 ">
+            <i class="fa-brands fa-css3-alt"></i>
+
+        </div>
+        <div class="circules circul3 ">
+            <i class="fa-brands fa-js"></i>
+
+        </div>
+        <div class="circules circul4 ">
+            <i class="fa-brands fa-react"></i>
+
+        </div>
+        <div class="progressbar" id="progressbar1"></div>
+    </div>
+    <button class="btn" id="prev" disabled>Prev</button>
+    <button class="btn" id="next" >Next</button>
+
+
+    </div>
+    <script>
+        const progress = document.getElementById('progressbar1');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        const circules = document.querySelectorAll(".circules");
+        // console.log(circules)
+        let steps = 1;
+        next.addEventListener('click',()=>{
+            steps++;
+            if(steps > circules.length){
+                steps = circules.length;
+
+            }
+        // console.log(steps)
+        update(); 
+ 
+        });
+        prev.addEventListener('click',()=>{
+            steps--;
+            if(steps < 1){
+                steps = 1;
+            }
+            update();
+        });
+  function update(){
+    circules.forEach((circul,index)=>{
+        if(index <steps){
+            circul.classList.add("active")
+        }
+        else{
+            circul.classList.remove('active');
+        }
+    })
+    const active = document.querySelectorAll(".active");
+   progress.style.width = ((active.length-1)/(circules.length-1))*100 + "%";
+
+   if(steps === 1){
+    prev.disabled = true;
+
+   }
+   else if(steps === circules.length){
+    next.disabled = true;
+   }
+   else{
+    prev.disabled =false;
+    next.disabled = false;
+   }
+
+  }
+ 
+//   console.log(active.length);
+
+    </script>
+</body>
+</html>

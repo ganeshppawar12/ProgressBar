@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh;
+ overflow: hidden;
+ background: linear-gradient(to right bottom , rgb(244, 238, 250), rgb(235, 223, 248),rgb(241, 208, 249),rgb(203, 159, 248),rgb(187, 122, 252));
+
+}
+h1{
+    color: #f718bf;
+}
+h3{
+    color: #bb21e6;
+}
+
+.container{
+    text-align: center;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+    margin-top: 50px;
+}
+.box::before{
+    content: "";
+    background-color:gray;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+    transition:  all 0.4s ease;
+}
+
+.circul1 i{
+  font-size: 1.8rem;
+  color: #ff5773;
+}
+.circules:hover{
+    transform: scale(.97);
+}
+.circul2 i{
+    font-size: 1.8rem;
+  color: #264de4;
+}
+.circul3 i{
+    font-size: 1.8rem;
+    color: #f7e018;
+}
+.circul4 i{
+    font-size: 1.8rem;
+  color: #61dbfb;
+}
+.circul1,.circul2,.circul3,.circul4{
+    background:#fff;
+    color: #999;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: 3px solid #b2bec3;
+ display:flex;
+ align-items: center;
+ justify-content: center;
+ transition: all 1.2s ease;
+    
+}
+.active{
+    border-color: blueviolet;
+}
+.progressbar{
+    position: absolute;
+    background: blueviolet;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+   height: 4px;
+   width: 0%;
+   z-index: -1;
+   transition: 0.4s ease;
+}
+.btn{
+    background-color: rgb(168, 136, 255);
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    padding: 8px 30px;
+    margin: 15px;
+    font-size: 20px;
+}
+.btn:focus{
+    outline: 0;
+}
+.btn:active{
+    transform: scale(0.97);
+    background-color: rgb(190, 129, 248);
+    box-shadow: 1px 1px 1px rgb(177, 99, 251) ;
+}
+.btn:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+}
